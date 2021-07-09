@@ -1,9 +1,9 @@
 #video-grid {
-    /*display: flex;*/
-    grid-template-columns: repeat(auto-fill, 300px);
+    display: flex;
+    /*grid-template-columns: repeat(auto-fill, 300px);
     grid-auto-rows: 200px;
     grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-row-gap: 10px;*/
 }
 video {
     width: 300px;
@@ -50,6 +50,8 @@ video {
     color: #b4b3b3;
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    -ms-flex-align: baseline;
     padding: 5px;
 }
 
@@ -116,3 +118,6 @@ video {
 .unmute, .stop {
     color: #CC3B33;
 }
+
+
+

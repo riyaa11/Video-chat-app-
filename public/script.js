@@ -104,7 +104,11 @@ const playStop = () => {
     myVideoStream.getVideoTracks()[0].enabled = true;
   }
 }
-
+const LeaveMeeting = () =>{
+  if(confirm("Exit")){
+    window.close()
+  }
+}
 const setMuteButton = () => {
   const html = `
     <i class="fas fa-microphone"></i>
@@ -135,4 +139,11 @@ const setPlayVideo = () => {
     <span>Play Video</span>
   `
   document.querySelector('.main__video_button').innerHTML = html;
+}
+const setLeaveMeeting = () =>{
+  const html = `
+  <i class="fas fa-times"></i>
+    <span>Leave Meeting</span>
+  `
+  document.querySelector('.main__leave_button').innerHTML = html;
 }
