@@ -22,17 +22,17 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({
   extended:true
 }));
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   res.render('login')
 })
 
 app.post('/login',urlencoded,(req,res)=> {
   res.redirect(`/${uuidV4()}`)
   res.render('login',{login:req.params.name})
-})
-/*app.get('/room', (req, res) => {
-  res.redirect(`/${uuidV4()}`)
 })*/
+app.get('/', (req, res) => {
+  res.redirect(`/${uuidV4()}`)
+})
 app.get('/:room',(req,res)=>{
     res.render('room',{roomId:req.params.room})
 })
