@@ -1,16 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+    <style>
+      body{
+        background-color: rgb(0, 0, 0);
+        text-align: center;
+      }
+      h1{
+        color: rgb(255, 255, 255);
+        font-size: 300%;
+        text-align: center;
+      }
+      h3{
+        color: rgb(255, 255, 255);
+        font-size: 150%;
+        text-align: center;
+      }
+      button {
+       border: solid white;
+       border-radius: 8px;
+       background-color: rgb(74, 138, 233);
+       padding: 10px 25px;
+       text-align: center;
+       color: white;
+       display: inline-block;
+       width: 250px;
+       font-size: 20px;
+      }
+      button:hover {
+        background-color: #4CAF50; /* Green */
+        color: white;
+      }
+    </style>
   </head>
   <body>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-      <div>
-        <label for="name">Name</label>
-        <input type="name" id="name" name="name" required>
-      </div>
-      <button type="submit">Login</button>
+    <h1 >Welcome to the meeting room</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3>Click on the button below to join the meeting.</h3>
+    <br>
+    <form action="/login" method="GET">
+      <button type="submit">Join Meeting</button>
     </form>
   </body>
 </html>

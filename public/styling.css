@@ -1,21 +1,24 @@
 #video-grid {
-    display: flex;
-    /*grid-template-columns: repeat(auto-fill, 300px);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
     grid-auto-rows: 200px;
     grid-column-gap: 10px;
-    grid-row-gap: 10px;*/
+    grid-row-gap: 10px;
+
 }
 video {
     width: 300px;
     height: 200px;
     border: 20px;
-    border-radius: 5px; 
+    border-color: #F5F5F5;
+    border-radius: 10px; 
     margin: 10px;
     object-fit: cover;
 }
 .main {
     height: 100vh;
     display: flex;
+    background-color: #F5F5F5;
 }
 
 .main__left {
@@ -27,18 +30,11 @@ video {
 .main__right {
     flex: 0.2
 }
-
-.main__videos {
-    
-    background-color: black;
-    display: grid;
-    
-    /*align-items: center;*/
-    padding: 20px;
-}
-
 .main__controls {
     background-color: #1C1E20;
+    width:175vh;
+    bottom:0px;
+    position: absolute;
 }
 
 .main__right {
@@ -50,8 +46,8 @@ video {
     color: #b4b3b3;
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    -ms-flex-align: baseline;
+    /*flex-direction: row;
+    -ms-flex-align: baseline;*/
     padding: 5px;
 }
 
@@ -118,6 +114,3 @@ video {
 .unmute, .stop {
     color: #CC3B33;
 }
-
-
-
