@@ -1,13 +1,9 @@
+//defining the '/' 
+//contains code that has API's to be used to establish the video streaming, audio streaming and messages 
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 
-const myPeer = new Peer(undefined, {
-  /*host: '/',
-  port: '443'  
-  /*host: '/',
-  port: '3001'*/
-})
-//const peer = new Peer(undefined, { host: "peerjs-server.herokuapp.com", secure: true, port: 443, });
+const myPeer = new Peer(undefined, {})
 let myVideoStream;
 const myVideo = document.createElement('video')
 myVideo.muted = true
@@ -34,10 +30,7 @@ navigator.mediaDevices.getUserMedia({
       connectToNewUser(userId, stream)
     }, 3000)
   })
-  /*socket.on('user-connected', userId => {
-    console.log("User Connected " + userId)
-    connectToNewUser(userId, stream)
-  })*/
+  
   let text = $("input");
   // when press enter send message
   $('html').keydown(function (e) {
@@ -46,16 +39,17 @@ navigator.mediaDevices.getUserMedia({
       text.val('')
     }
   });
+  //creating messages and appending it to the list
   socket.on("createMessage", message => {
     $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
     scrollToBottom()
   })
 })
+// disconnecting the user and closing the window
 socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close()
 })
-
-
+// connecting to a new user
 function connectToNewUser(userId, stream) {
     const call = myPeer.call(userId, stream)
     const video = document.createElement('video')
@@ -63,13 +57,14 @@ function connectToNewUser(userId, stream) {
       addVideoStream(video, userVideoStream)
     })
     call.on('close', () => {
-      video.remove()
+      video.remove() //removing video when person disconnects
     })
     peers[userId] = call
 }
 myPeer.on('open', id => {
     socket.emit('join-room', ROOM_ID, id)
  })
+ // adding video stream and appending the video when a new user joins
 function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
@@ -78,11 +73,12 @@ function addVideoStream(video, stream) {
   })
   
 }
-
+//scrolling the chat window to bottom
 const scrollToBottom = () => {
   var d = $('.main__chat_window');
   d.scrollTop(d.prop("scrollHeight"));
 }
+// mute/ unmute audio button settings
 const muteUnmute = () => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
   if (enabled) {
@@ -93,6 +89,7 @@ const muteUnmute = () => {
     myVideoStream.getAudioTracks()[0].enabled = true;
   }
 }
+// video on/off button settings
 const playStop = () => {
   console.log('object')
   let enabled = myVideoStream.getVideoTracks()[0].enabled;
@@ -104,11 +101,14 @@ const playStop = () => {
     myVideoStream.getVideoTracks()[0].enabled = true;
   }
 }
+// leave meeting
 const LeaveMeeting = () =>{
-  if(confirm("Exit")){
+  if(confirm("Are you sure you want to leave the meeting?")){
     window.close()
   }
 }
+
+// setting various buttons - Query Selection
 const setMuteButton = () => {
   const html = `
     <i class="fas fa-microphone"></i>

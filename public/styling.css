@@ -1,3 +1,5 @@
+/*styling the room and its elements*/
+/*video grid properties*/
 #video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
@@ -6,6 +8,7 @@
     grid-row-gap: 10px;
 
 }
+/*video dimensions and properties*/
 video {
     width: 300px;
     height: 200px;
@@ -15,6 +18,10 @@ video {
     margin: 10px;
     object-fit: cover;
 }
+/* The further part contains styling of the elements of the main part- with left, right and control 
+block. The different buttons of the the block- mute/unmute video on/off and leave meeting have been
+designed.
+*/
 .main {
     height: 100vh;
     display: flex;
