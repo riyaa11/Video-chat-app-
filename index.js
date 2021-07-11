@@ -22,14 +22,8 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({
   extended:true
 }));
-app.get('/', (req, res) => {
-  res.render('login')
-})
 
-app.post('/login',urlencoded,(req,res)=> {
-  res.redirect(`/${uuidV4()}`)
-})
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
   res.redirect(`/${uuidV4()}`)
 })
 app.get('/:room',(req,res)=>{

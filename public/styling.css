@@ -33,6 +33,7 @@ video {
 .main__controls {
     background-color: #1C1E20;
     width:175vh;
+    display: flex;
     bottom:0px;
     position: absolute;
 }
