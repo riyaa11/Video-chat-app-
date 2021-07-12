@@ -19,6 +19,11 @@ uuid
 ## Deployment
 The app has been deployed on Heroku and can be accessed and used through the link directly on the web.
 
+Link for the app is https://damp-brook-41208.herokuapp.com/
+
+For adding other people share the room link with them.
+
+
 To run it locally, different libraries need to installed using the command npm on the terminal and npm run start and then on the web open the corresponding host on the browser and you can successfully run the video chat app.
 
 ## Features
